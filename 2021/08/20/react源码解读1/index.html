@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>react源码解读1 | Hexo</title>
+  <title>react源码解读(1)：JSX语法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="react">
+  <meta name="description" content="JSX语法 jsx in depth：https:&#x2F;&#x2F;reactjs.org&#x2F;docs&#x2F;jsx-in-depth.html#gatsby-focus-wrapper  JSX本质上只是React提供的语法糖，经过编译之后会转换成React.createElement的调用 123&lt;MyButton color&#x3D;&quot;blue&quot; shadowSize&#x3D;&amp;#123;2&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react源码解读1">
+<meta property="og:title" content="react源码解读(1)：JSX语法">
 <meta property="og:url" content="http://example.com/2021/08/20/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="react">
+<meta property="og:description" content="JSX语法 jsx in depth：https:&#x2F;&#x2F;reactjs.org&#x2F;docs&#x2F;jsx-in-depth.html#gatsby-focus-wrapper  JSX本质上只是React提供的语法糖，经过编译之后会转换成React.createElement的调用 123&lt;MyButton color&#x3D;&quot;blue&quot; shadowSize&#x3D;&amp;#123;2&amp;#125;">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Users/bytedance/pj/blog/source/_posts/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB1/image-20210820184758759.png">
 <meta property="article:published_time" content="2021-08-20T09:32:05.000Z">
-<meta property="article:modified_time" content="2021-08-20T09:44:15.805Z">
+<meta property="article:modified_time" content="2021-08-20T10:48:03.206Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Users/bytedance/pj/blog/source/_posts/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB1/image-20210820184758759.png">
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -80,7 +83,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      react源码解读1
+      react源码解读(1)：JSX语法
     </h1>
   
 
@@ -88,7 +91,18 @@
     
     <div class="e-content article-entry typo" itemprop="articleBody">
       
-        <h1 id="react"><a href="#react" class="headerlink" title="react"></a>react</h1>
+        <h1 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h1><blockquote>
+<p>jsx in depth：<a target="_blank" rel="noopener" href="https://reactjs.org/docs/jsx-in-depth.html#gatsby-focus-wrapper">https://reactjs.org/docs/jsx-in-depth.html#gatsby-focus-wrapper</a></p>
+</blockquote>
+<p>JSX本质上只是React提供的语法糖，经过编译之后会转换成React.createElement的调用</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyButton color=<span class="string">&quot;blue&quot;</span> shadowSize=&#123;<span class="number">2</span>&#125;&gt;</span><br><span class="line">  Click Me</span><br><span class="line">&lt;/MyButton&gt;</span><br></pre></td></tr></table></figure>
+
+<p>经过编译后：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">React.createElement(</span><br><span class="line">  MyButton,</span><br><span class="line">  &#123;<span class="attr">color</span>: <span class="string">&#x27;blue&#x27;</span>, <span class="attr">shadowSize</span>: <span class="number">2</span>&#125;,</span><br><span class="line">  <span class="string">&#x27;Click Me&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="React-createElement"><a href="#React-createElement" class="headerlink" title="React.createElement"></a>React.createElement</h2><p>在源码中可以看到createElement的函数定义    </p>
+<p><img src="/Users/bytedance/pj/blog/source/_posts/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB1/image-20210820184758759.png" alt="image-20210820184758759"></p>
+
       
       
     </div>
@@ -103,6 +117,14 @@
         </li>
         
         
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/" rel="tag">react</a></li></ul>
+
+
+          </li>
+        
         <hr/>
       </ul>
     </footer>
@@ -111,7 +133,14 @@
     
 <nav id="article-nav" class="article-nav">
   
-    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+    <a href="/2021/08/20/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB2/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          react源码解读2
+        
+      </div>
+    </a>
   
   
     <a href="/2021/08/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap older">
