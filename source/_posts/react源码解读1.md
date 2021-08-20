@@ -27,6 +27,6 @@ React.createElement(
 
 ## React.createElement
 
-在源码中可以看到createElement的函数定义	
+在源码中可以看到createElement的函数定义
 
-![image-20210820184758759](/Users/bytedance/pj/blog/source/_posts/react源码解读1/image-20210820184758759.png)
+![image-20210820190344629](react源码解读1/image-20210820190344629.png)
